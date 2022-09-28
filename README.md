@@ -8,6 +8,8 @@ This project fetched an <b>A+</b> grade and passed all Run-Time Test Cases provi
 
 ## Some Key Features
 
+The Assembler and Simulator both support (some) floating point numbers which can be represented using the custom exponent notation. In the simulator, even the FLAGS register is handled as asked.
+
 ### SimpleAssembler
 
 The Simple-Assembler reads input (from stdin) until and EOF is encountered. It scans over and parses the input multiple times. If the code is syntactically correct, and error free, the code is translated into a binary (*machine code*). The generated machine code is given as output (to stdout).
@@ -25,6 +27,13 @@ It also generates a Memory-Trace, a plot of the memory-addresses accessed during
 This part of the project is separate from the other two and deals with hardware details of a machine like number of pins in the CPU, and how to change between them.
 
 ## The Instruction Set Architecture
+
+The following is some information about the custom Reduced Instruction Set Architectured followed for this project. The same is also available in the attached PDF.
+
+| Op-Code | Instruction | Semantics | Syntax | Type |
+|---------|:-----------:|:----------|:-------|------|
+|  10000  | Addition    | Performs `reg3 = reg2 + reg1`. If computation overflows, the flag is set | `add reg1 reg2 reg3` | A
+
 
 ## Run
 
