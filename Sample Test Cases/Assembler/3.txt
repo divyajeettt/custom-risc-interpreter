@@ -1,0 +1,12 @@
+mov r0 $50
+mov r1 $2
+mul r1 r0 r2
+label: 
+l1: add r1 r2 r3
+cmp r2 r3
+je label
+jgt l1
+hlt
+
+
+Empty label defined

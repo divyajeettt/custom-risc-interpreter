@@ -1,0 +1,7 @@
+mov r0 $40
+mov r1 r0
+add r2 r1
+hlt
+
+
+Invalid syntax
