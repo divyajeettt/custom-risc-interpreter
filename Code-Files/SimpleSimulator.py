@@ -461,6 +461,6 @@ if not os.path.exists(os.path.join(os.getcwd(), "Graphs")):
     os.mkdir(os.path.join(os.getcwd(), "Graphs"))
 
 TEST_CASE: int = 1
-while os.path.exists(f"./Graphs/Test-Case {str(TEST_CASE).zfill(3)}.jpg"):
+while os.path.exists(f"./Graphs/Test-Case-{str(TEST_CASE).zfill(2)}.jpg"):
     TEST_CASE += 1
-plt.savefig(f"./Graphs/Test-Case {str(TEST_CASE).zfill(3)}.jpg")
+plt.savefig(f"./Graphs/Test-Case-{str(TEST_CASE).zfill(2)}.jpg")
