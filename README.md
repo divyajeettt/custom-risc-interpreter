@@ -26,15 +26,6 @@ It also generates a Memory-Trace, a plot of the memory-addresses accessed during
 
 This part of the project is separate from the other two and deals with hardware details of a machine like number of pins in the CPU, and how to change between them.
 
-## The Instruction Set Architecture
-
-The following is some information about the custom Reduced Instruction Set Architectured followed for this project. The same is also available in the attached PDF.
-
-| Op-Code | Instruction | Semantics | Syntax | Type |
-|---------|:-----------:|:----------|:-------|------|
-|  10000  | Addition    | Performs `reg3 = reg2 + reg1`. If computation overflows, the flag is set | `add reg1 reg2 reg3` | A
-
-
 ## Run
 
 Clone the repository on your device and navigate to the folder.
