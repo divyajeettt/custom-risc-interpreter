@@ -48,4 +48,5 @@ python3 .\Code-Files\Memory.py
 ## Future Plans
 
 - Change Simple-Assembler and Simple-Simulator to be case-insensitive (easy fix)
+- Extension of Simple-Assembler and Simple-Simulator to handle immediate values larger than 2¹⁶ 
 - Addition of more (RISC) instructions
