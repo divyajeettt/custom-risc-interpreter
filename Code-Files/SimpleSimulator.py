@@ -116,9 +116,10 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         value1 = handle_float(register_file(reg1)[8:])
         value2 = handle_float(register_file(reg2)[8:])
         value = value1 + value2
+
         if not 1 <= value <= 256:
             handle_overflow()
-            REGISTER_FILE[register(reg3)] = value % 2**8
+            REGISTER_FILE[register(reg3)] = "1" * 16
         else:
             REGISTER_FILE[register(reg3)] = binf(value).zfill(16)
             REGISTER_FILE[7] = "0" * 16
@@ -132,7 +133,6 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = handle_float(register_file(reg1)[8:])
         value2 = handle_float(register_file(reg2)[8:])
-
         value = value1 - value2
 
         if value1 < value2 - 1:
@@ -151,16 +151,15 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = int(register_file(reg1), base=2)
         value2 = int(register_file(reg2), base=2)
+        value = value1 + value2
 
-        value = bin(value1 + value2)[2:].zfill(16)
-
-        if len(value) > 16:
+        if value >= 2**16:
             handle_overflow()
-            value = "1" * 16
+            value %= 2**16
         else:
             REGISTER_FILE[7] = "0" * 16
 
-        REGISTER_FILE[register(reg3)] = value
+        REGISTER_FILE[register(reg3)] = bin(value)[2:].zfill(16)
         CYCLES.append(CYCLE)
         MEMORY_ACCESS.append(pc)
         pc += 1
@@ -232,16 +231,15 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = int(register_file(reg1), base=2)
         value2 = int(register_file(reg2), base=2)
+        value = value1 * value2
 
-        value = bin(value1 * value2)[2:].zfill(16)
-
-        if len(value) > 16:
+        if value >= 2**16:
             handle_overflow()
-            value = "1" * 16
+            value %= 2**16
         else:
             REGISTER_FILE[7] = "0" * 16
 
-        REGISTER_FILE[register(reg3)] = value
+        REGISTER_FILE[register(reg3)] = bin(value)[2:].zfill(16)
         CYCLES.append(CYCLE)
         MEMORY_ACCESS.append(pc)
         pc += 1
@@ -286,7 +284,6 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = int(register_file(reg1), base=2)
         value2 = int(register_file(reg2), base=2)
-
         value = bin(value1 ^ value2)[2:].zfill(16)
 
         REGISTER_FILE[register(reg3)] = value
@@ -300,7 +297,6 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = int(register_file(reg1), base=2)
         value2 = int(register_file(reg2), base=2)
-
         value = bin(value1 | value2)[2:].zfill(16)
 
         REGISTER_FILE[register(reg3)] = value
@@ -314,7 +310,6 @@ def execution_engine(instruction: str, pc: int) -> tuple[int, bool]:
         reg1, reg2, reg3 = type_A(instruction)
         value1 = int(register_file(reg1), base=2)
         value2 = int(register_file(reg2), base=2)
-
         value = bin(value1 & value2)[2:].zfill(16)
 
         REGISTER_FILE[register(reg3)] = value
