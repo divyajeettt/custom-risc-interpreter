@@ -2,9 +2,9 @@
 
 ## About custom-risc-interpreter
 
-custom-risc-interpreter is an Interpreter (Assembler and Simulator) for a custom [Reduced Instruction Set Architecture](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer) (for [Assembly](https://en.wikipedia.org/wiki/Assembly_language)). It is a command-line based project developed as a Project Assignment for the course [<b>CSE112: *Computer Organization*</b>](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE112). The deliverables of the project have also been pushed to this repository. 
+custom-risc-interpreter is an Interpreter (Assembler and Simulator) for a custom [Reduced Instruction Set Architecture](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer) (for [Assembly](https://en.wikipedia.org/wiki/Assembly_language)). It is a command-line based project developed as a Project Assignment for the course **[CSE112: *Computer Organization*](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE112)**. The deliverables of the project have also been added to this repository. 
 
-This project fetched an <b>A+</b> grade and passed all Run-Time Test Cases provided at the time of project demonstration.
+This project fetched an **A+** grade and passed all Run-Time Test Cases provided at the time of project demonstration.
 
 ## Some Key Features
 
